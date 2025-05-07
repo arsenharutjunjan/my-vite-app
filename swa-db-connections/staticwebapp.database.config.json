@@ -2,21 +2,35 @@
     "$schema": "https://github.com/Azure/data-api-builder/releases/latest/download/dab.draft.schema.json",
   
     "data-source": {
-        "database-type": "cosmosdb_nosql",
-        "connection-string": "@env('COSMOSDB_CONNECTION_STRING')"
+      "database-type": "cosmosdb_nosql",
+      //  🔑 Deze environment-var staat in SWA › Settings › Configuration
+      "connection-string": "@env('COSMOSDB_CONNECTION_STRING')"
     },
   
     "runtime": {
-      "rest":   { "enabled": true,  "path": "/rest" },
-      "graphql":{ "enabled": false },            
-      "host":   { "mode": "production" }
+      "rest":  { "enabled": true,  "path": "/rest" },
+      "graphql": { "enabled": true, "allow-introspection": true, "path": "/graphql" },
+  
+      "host": {
+        "mode": "production",
+        "cors": { "origins": ["http://localhost:4280"], "allow-credentials": false },
+        "authentication": { "provider": "StaticWebApps" }
+      }
     },
   
     "entities": {
-      "carItems": {
-        "source": "carItems",                  
+      "CarItem": {
+        "source": "carItems",        
+        "partitionKey": "/id",      
         "permissions": [
-          { "role": "anonymous", "actions": [ "create", "read", "update", "delete" ] }
+          {                          
+            "role": "anonymous",
+            "actions": ["read"]
+          },
+          {                         
+            "role": "authenticated",
+            "actions": ["create", "update", "delete", "read"]
+          }
         ]
       }
     }
