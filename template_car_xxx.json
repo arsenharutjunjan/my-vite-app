@@ -1,0 +1,33 @@
+{
+    "id": "REPLACE_WITH_ID",
+    "registration": "DD-MM-YYYY",
+    "car_overview": {
+      "brand": "REPLACE_WITH_BRAND",
+      "model": "REPLACE_WITH_MODEL",
+      "body": "REPLACE_WITH_BODY",
+      "price": 0,
+      "pictures": "./images/autos/REPLACE_ID/",
+      "description": "REPLACE_WITH_DESCRIPTION",
+      "condition": "Occasion",
+      "stock_number": "REPLACE_WITH_STOCK",
+      "vin_number": "REPLACE_WITH_VIN",
+      "year": 0,
+      "mileage": 0,
+      "transmission": "REPLACE",
+      "engine_size": "REPLACE",
+      "driver_type": "REPLACE",
+      "cylinders": 0,
+      "fuel": "REPLACE",
+      "doors": 5,
+      "color": "REPLACE",
+      "seats": 5,
+      "pk": 0,
+      "variant": "REPLACE",
+      "carrosserie": "REPLACE"
+    },
+    "safety_features": [],
+    "exterior_features": [],
+    "interior_features": [],
+    "convenience_features": []
+  }
+  
