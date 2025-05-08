@@ -28,6 +28,7 @@
   "entities": {
     "CarItem": {
       "source": "carItems",
+      "partition-key": "/id",  
       "permissions": [
         {
           "actions": ["*"],
