@@ -6,7 +6,7 @@
       "database": "company-cars",
       "schema": "staticwebapp.database.schema.gql"
     },
-    "connection-string": "@env('DATABASE_CONNECTION_STRING')"
+    "connection-string": "@env('COSMOS_CONN')"
   },
   "runtime": {
     "graphql": {
@@ -27,7 +27,7 @@
   },
   "entities": {
     "Person": {
-      "source": "MyTestPersonContainer",
+      "source": "carItems",
       "permissions": [
         {
           "actions": ["*"],
