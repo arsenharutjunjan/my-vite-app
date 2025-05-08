@@ -1,0 +1,18 @@
+scalar JSON           # ← Data-API-Builder kent deze scalar
+
+"""
+Eén auto in de collectie `carItems`
+"""
+type CarItem @container(name:"carItems", pk:"/id") {
+  id: ID!                         # "001"
+  registration: String            # "07-05-2025"
+
+  # geneste objecten kun je ofwel opknippen in extra types,
+  # of (makkelijker) als JSON laten behandelen:
+  car_overview: JSON
+
+  safety_features:   [String]     # []
+  exterior_features: [String]
+  interior_features: [String]
+  convenience_features: [String]
+}
