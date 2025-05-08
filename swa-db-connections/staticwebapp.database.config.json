@@ -1,32 +1,14 @@
 {
-  "$schema": "https://github.com/Azure/data-api-builder/releases/latest/download/dab.draft.schema.json",
-  "data-source": {
-    "database-type": "cosmosdb_nosql",
-    "connection-string": "@env('COSMOS_CONN')",
-    "options": {
-      "database": "company-cars",
-      "container": "carItems",
-      "schema": "staticwebapp.database.schema.gql" 
-    }
+  "dataSource": {
+    "databaseType": "cosmosdb_nosql",
+    "connectionStringSetting": "COSMOS_CONN",
+    "database": "company-cars",
+    "container": "carItems"
   },
-
-  "runtime": {
-    "rest":    { "enabled": true,  "path": "/rest" },
-    "graphql": { "enabled": true, "allow-introspection": true, "path": "/graphql" },
-    "host": {
-      "mode": "production",
-      "cors": { "origins": ["http://localhost:4280"], "allow-credentials": false },
-      "authentication": { "provider": "StaticWebApps" }
+  "permissions": [
+    {
+      "role": "anonymous",
+      "actions": [ "read", "create", "update", "delete" ]
     }
-  },
-
-  "entities": {
-    "CarItem": {
-      "source": "carItems",
-      "permissions": [
-        { "role": "anonymous",     "actions": ["read"] },
-        { "role": "authenticated", "actions": ["create","update","delete","read"] }
-      ]
-    }
-  }
+  ]
 }
