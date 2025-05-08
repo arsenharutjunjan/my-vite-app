@@ -1,12 +1,7 @@
 type CarItem @model(name: "carItems", source: "carItems") {
-  id: String!
+  id: String!       # partition key mag ook hier
   registration: String
   car_overview: CarOverview
-  safety_features: [String]
-  interior_features: [String]
-  performance_features: [String]
-  exterior_features: [String]
-  pictures: [String]
 }
 
 type CarOverview {
