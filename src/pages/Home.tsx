@@ -4,5 +4,7 @@ export default function Home() {
       <h1 className="text-2xl font-semibold">Home Page</h1>
       <p>Welcome to our homepage!</p>
     </div>
+
+    
   );
 }

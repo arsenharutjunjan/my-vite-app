@@ -1,11 +1,4 @@
-type CarItem @model {
-  id: ID!
-  registration: String
-  car_overview: CarOverview @json
-}
-
-type CarOverview {
-  brand: String
-  model: String
-  price: Int
+type Person @model {
+  id: ID
+  Name: String
 }

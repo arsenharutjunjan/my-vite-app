@@ -3,10 +3,10 @@
   "data-source": {
     "database-type": "cosmosdb_nosql",
     "options": {
-      "database": "company-cars",
+      "database": "avs-info",
       "schema": "staticwebapp.database.schema.gql"
     },
-    "connection-string": "@env('COSMOS_CONN')"
+    "connection-string": "@env('DATABASE_CONNECTION_STRING')"
   },
   "runtime": {
     "graphql": {
@@ -16,15 +16,23 @@
     },
     "host": {
       "mode": "production",
-      "cors": { "origins": ["http://localhost:4280"], "allow-credentials": false },
-      "authentication": { "provider": "StaticWebApps" }
+      "cors": {
+        "origins": ["http://localhost:4280"],
+        "allow-credentials": false
+      },
+      "authentication": {
+        "provider": "StaticWebApps"
+      }
     }
   },
   "entities": {
-    "CarItem": {
-      "source": "caritems",
+    "Person": {
+      "source": "avs-info",
       "permissions": [
-        { "actions": ["*"], "role": "anonymous" }
+        {
+          "actions": ["*"],
+          "role": "anonymous"
+        }
       ]
     }
   }

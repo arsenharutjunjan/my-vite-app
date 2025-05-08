@@ -1,14 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link href="/src/styles.css" rel="stylesheet" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <title>my-vite-app</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <!-- Vite injects your bundles here -->
+    <script type="module" src="/src/main.tsx"></script>
   </head>
   <body>
+    <h1>Static Web Apps Database Connections</h1>
+    <blockquote>
+      Open the console in the browser developer tools to see the API responses.
+    </blockquote>
+    <div>
+      <button id="list"   onclick="list()">List</button>
+      <button id="get"    onclick="get()">Get</button>
+      <button id="update" onclick="update()">Update</button>
+      <button id="create" onclick="create()">Create</button>
+      <button id="delete" onclick="del()">Delete</button>
+    </div>
+    <script>
+      async function list() {
+        const query = `
+        {
+          people {
+            items {
+              id
+              Name
+            }
+          }
+        }`;
+        const res = await fetch("/data-api/graphql", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query })
+        });
+        const json = await res.json();
+        console.table(json.data.people.items);
+      }
+  
+      // kopieer hier óók precies de andere functies (get, updatePerson, createPerson, deletePerson)
+      // exact zoals in de Microsoft-guide staan…
+    </script>
+  
+    <!-- Als je daarna wél nog React wilt laden: -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-  </body>
+  </body>  
 </html>
