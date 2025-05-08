@@ -28,7 +28,7 @@
   },
   "entities": {
     "Person": {
-      "source": "avs-info",
+      "source": "avs-container",
       "permissions": [
         {
           "actions": ["*"],
