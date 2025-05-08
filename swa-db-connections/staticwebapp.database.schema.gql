@@ -1,7 +1,7 @@
-type CarItem @model(name: "carItems", source: "carItems") {
-  id: String!
+type CarItem @model {
+  id: ID!
   registration: String
-  car_overview: CarOverview
+  car_overview: CarOverview @json
 }
 
 type CarOverview {

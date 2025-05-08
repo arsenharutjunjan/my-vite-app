@@ -16,24 +16,15 @@
     },
     "host": {
       "mode": "production",
-      "cors": {
-        "origins": ["http://localhost:4280"],
-        "allow-credentials": false
-      },
-      "authentication": {
-        "provider": "StaticWebApps"
-      }
+      "cors": { "origins": ["http://localhost:4280"], "allow-credentials": false },
+      "authentication": { "provider": "StaticWebApps" }
     }
   },
   "entities": {
     "CarItem": {
-      "source": "carItems",
-      "partitionKey": "id",         
+      "source": "caritems",
       "permissions": [
-        {
-          "actions": ["*"],
-          "role": "anonymous"
-        }
+        { "actions": ["*"], "role": "anonymous" }
       ]
     }
   }
